@@ -1,0 +1,30 @@
+---
+- name: ADD BGP TO ROUTER
+  hosts: cisco
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+
+    - name: ENSURE BGP ISN'T ALREADY CONFIGURED
+      ios_config:
+        commands:
+          - router bgp 65412
+        state: absent
+        
+    - name: ADD BGP 65412
+      ios_config:
+        commands:
+          - router bgp 65412
+        state: present
+
+- name: HADD BGP PEER
+  hosts: cisco
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+
+    - name: ADD BGP PEER
+      ios_config:
+        src: secure_router.cfg
