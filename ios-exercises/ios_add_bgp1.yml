@@ -1,5 +1,4 @@
 ---
----
 - name: ADD BGP TO ROUTER1
   hosts: rt1
   gather_facts: no
