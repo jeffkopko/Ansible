@@ -1,6 +1,6 @@
 ---
 - name: ADD BGP TO ROUTER1
-  hosts: rt1
+  hosts: rtr1
   gather_facts: no
   connection: network_cli
 
