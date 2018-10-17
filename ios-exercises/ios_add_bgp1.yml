@@ -13,7 +13,6 @@
           - bgp router-id 10.3.1.4
           - bgp log-neighbor-changes
           - neighbor 10.3.1.5 remote-as 65412
-        state: present
      
 - name: CONFIGURE BGP ON BIGBADSIFMUROUTER
   hosts: rtr2
