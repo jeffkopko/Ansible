@@ -1,30 +1,34 @@
 ---
-- name: ADD BGP TO ROUTER
-  hosts: cisco
+---
+- name: ADD BGP TO ROUTER1
+  hosts: rt1
   gather_facts: no
   connection: network_cli
 
   tasks:
 
-    - name: ENSURE BGP ISN'T ALREADY CONFIGURED
+    - name: ENSURE BGP ISN'T ALREADY CONFIGURED on BIGBADGTRROUTER
       ios_config:
         commands:
           - router bgp 65412
         state: absent
         
-    - name: ADD BGP 65412
+    - name: ADD BGP 65412 TO  BIGBADGTRROUTER
       ios_config:
         commands:
           - router bgp 65412
+          - bgp router-id 10.3.1.4
+          - bgp log-neighbor-changes
+          - neighbor 10.3.1.5 remote-as 65412
         state: present
-
-- name: HADD BGP PEER
-  hosts: cisco
+     
+- name: CONFIGURE BGP ON BIGBADSIFMUROUTER
+  hosts: rtr2
   gather_facts: no
   connection: network_cli
 
   tasks:
 
-    - name: ADD BGP PEER
+    - name: ADD BGP CONFIG TO BIGBADSIFMUROUTER
       ios_config:
-        src: secure_router.cfg
+        src: bgp2.cfg
