@@ -5,13 +5,7 @@
   connection: network_cli
 
   tasks:
-
-    - name: ENSURE BGP ISN'T ALREADY CONFIGURED on BIGBADGTRROUTER
-      ios_config:
-        commands:
-          - router bgp 65412
-        state: absent
-        
+      
     - name: ADD BGP 65412 TO  BIGBADGTRROUTER
       ios_config:
         commands:
