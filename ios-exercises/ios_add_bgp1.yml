@@ -25,8 +25,8 @@
       ios_config:
         src: bgp2.cfg
         
-  roles:
-    - ansible-network.network-engine
+#  roles:
+#    - ansible-network.network-engine
 
 - name: SH BGP SUMMARY
   hosts: cisco
