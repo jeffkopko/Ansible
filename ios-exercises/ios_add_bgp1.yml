@@ -34,10 +34,12 @@
   connection: network_cli
   
   tasks:
+  
     - name: CAPTURE SHOW IP BGP SUM
       ios_command:
         commands:
           - show ip bgp sum
+          
 #      register: output
 
 #    - name: PARSE THE RAW OUTPUT
