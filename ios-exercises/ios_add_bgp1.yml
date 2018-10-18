@@ -24,3 +24,27 @@
     - name: ADD BGP CONFIG TO BIGBADSIFMUROUTER
       ios_config:
         src: bgp2.cfg
+        
+  roles:
+    - ansible-network.network-engine
+
+- name: SH BGP SUMMARY
+  hosts: cisco
+  gather_facts: no
+  connection: network_cli
+  
+  tasks:
+    - name: CAPTURE SHOW IP BGP SUM
+      ios_command:
+        commands:
+          - show ip bgp sum
+      register: output
+
+#    - name: PARSE THE RAW OUTPUT
+#      command_parser:
+#        file: "parsers/show_interfaces.yaml"
+#        content: "{{ output.stdout[0] }}"
+
+#    - name: DISPLAY THE PARSED DATA
+#      debug:
+#        var: interface_facts
