@@ -39,8 +39,7 @@
       ios_command:
         commands:
           - show ip bgp sum
-          
-#      register: output
+      register: output
 
 #    - name: PARSE THE RAW OUTPUT
 #      command_parser:
